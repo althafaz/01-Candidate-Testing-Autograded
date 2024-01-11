@@ -28,7 +28,6 @@ function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question("Please enter candidate name: ")
   console.log(candidateAnswer)
-
 }
 
 function askQuestion() {
@@ -37,7 +36,7 @@ function askQuestion() {
 
   for(let i=0;i < questions.length; i++){
       let qNo = i+1;
-       candidateAnswer = input.question(qNo+". "+questions[i])
+       candidateAnswer = input.question("\n"+qNo+". "+questions[i])
        candidateAnswers.push(candidateAnswer)
   }
   
@@ -63,7 +62,6 @@ else{
   
   for (let y=0;y < correctAnswers.length;y++){
 
-
       if(correctAnswers[y].toString().toLowerCase() == candidateAnswers[y].toString().toLowerCase())
       {
         count++
@@ -71,7 +69,31 @@ else{
   }
   
   grade = count/correctAnswers.length * 100
-  console.log("Your score is "+ grade)
+
+  console.log("\n......................................")
+  console.log("\nCandidate Name: "+candidateName)
+  console.log("......................................\n")
+
+  for (let x = 0; x < questions.length;x++){
+
+    let qNo = x+1;
+    console.log(qNo+") "+questions[x])
+    console.log("your Answer: "+ candidateAnswers[x])
+    console.log("Correct Answer:" + correctAnswers[x]+"\n")
+
+  }
+  
+  console.log(" >>> Overall Grade: "+ grade +" ("+count+" of "+questions.length +" responses correct) <<<")
+
+  if (grade >= 80){
+    console.log(" >>> STATUS: PASSED <<<")
+  }
+
+  else {
+    console.log(" >>> STATUS: FAILED <<<")
+  }
+
+  console.log("......................................\n")
   return grade;
 }
 
