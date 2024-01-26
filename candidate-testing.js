@@ -36,7 +36,7 @@ function askQuestion() {
 
   for(let i=0;i < questions.length; i++){
       let qNo = i+1;
-       candidateAnswer = input.question("\n"+qNo+". "+questions[i])
+       candidateAnswer = input.question(`\n${qNo}. ${questions[i]}`)
        candidateAnswers.push(candidateAnswer)
   }
   
@@ -71,26 +71,26 @@ else{
   grade = count/correctAnswers.length * 100
 
   console.log("\n......................................")
-  console.log("\nCandidate Name: "+candidateName)
+  console.log(`\nCandidate Name: ${candidateName}`)
   console.log("......................................\n")
 
   for (let x = 0; x < questions.length;x++){
 
     let qNo = x+1;
     console.log(qNo+") "+questions[x])
-    console.log("your Answer: "+ candidateAnswers[x])
-    console.log("Correct Answer:" + correctAnswers[x]+"\n")
+    console.log(`your Answer: ${candidateAnswers[x]}`)
+    console.log(`Correct Answer: ${correctAnswers[x]}\n`)
 
   }
   
-  console.log(" >>> Overall Grade: "+ grade +" ("+count+" of "+questions.length +" responses correct) <<<")
+  console.log(`>>> Overall Grade:  ${grade} (${count} of ${questions.length} responses are correct) <<<`)
 
   if (grade >= 80){
-    console.log(" >>> STATUS: PASSED <<<")
+    console.log(">>> STATUS: PASSED <<<")
   }
 
   else {
-    console.log(" >>> STATUS: FAILED <<<")
+    console.log(">>> STATUS: FAILED <<<")
   }
 
   console.log("......................................\n")
@@ -100,7 +100,7 @@ else{
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Welcome "+ candidateName);
+   console.log(`Welcome ${candidateName}`);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
